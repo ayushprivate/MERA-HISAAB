@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#101827">
+<title>Sign in · My Expenses Tracker</title>
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<style>
+:root{color-scheme:dark;--bg:#0b1220;--panel:#121d2e;--panel2:#18263a;--line:#29384c;--text:#f4f7fb;--muted:#9baabd;--mint:#38e0ad;--mint-dark:#0b9d78;--danger:#ff8b8b}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;min-height:100svh;display:grid;place-items:center;padding:26px 18px;background:radial-gradient(ellipse at 15% 12%,rgba(56,224,173,.12),transparent 35%),radial-gradient(ellipse at 90% 90%,rgba(71,119,212,.12),transparent 38%),var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text)}
+.shell{width:100%;max-width:980px;display:grid;grid-template-columns:1fr 430px;min-height:570px;border:1px solid rgba(155,170,189,.17);border-radius:28px;overflow:hidden;background:rgba(18,29,46,.82);box-shadow:0 28px 90px rgba(0,0,0,.32)}
+.story{position:relative;padding:52px 46px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;background:linear-gradient(145deg,rgba(56,224,173,.09),transparent 50%),#101a2a}
+.brand{display:flex;align-items:center;gap:12px;font-weight:750;letter-spacing:-.35px;font-size:17px}
+.brand-icon{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--mint);color:#062218;box-shadow:0 8px 28px rgba(56,224,173,.2)}
+.brand-icon svg{width:25px;height:25px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(56,224,173,.25);border-radius:99px;color:#9ff5d8;font-size:12px;font-weight:700;letter-spacing:.7px;text-transform:uppercase}
+.dot{width:7px;height:7px;background:var(--mint);border-radius:50%;box-shadow:0 0 12px var(--mint)}
+.story h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-1.8px;margin:22px 0 16px;max-width:420px}
+.story h2 span{color:var(--mint)}
+.story-copy{color:var(--muted);line-height:1.75;font-size:15px;max-width:370px;margin:0}
+.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:34px}
+.mini-stat{padding:14px 12px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07)}
+.mini-stat b{display:block;font-size:13px;margin-bottom:5px}
+.mini-stat span{font-size:11px;color:var(--muted)}
+.story-foot{color:#718198;font-size:12px;margin-top:36px}
+.form-side{padding:48px 38px;display:flex;flex-direction:column;justify-content:center;background:rgba(13,22,36,.6)}
+.form-side h1{font-size:29px;letter-spacing:-.9px;margin:0 0 10px}
+.sub{font-size:14px;line-height:1.65;color:var(--muted);margin:0 0 28px}
+label{display:block;font-size:12px;font-weight:700;color:#d9e2ee;margin:0 0 9px}
+input,button{font:inherit;width:100%;min-height:49px;border-radius:13px}
+input{padding:0 15px;background:#0d1726;color:var(--text);border:1px solid var(--line);outline:none;transition:border-color .2s,box-shadow .2s}
+input::placeholder{color:#66758a}
+input:focus{border-color:var(--mint);box-shadow:0 0 0 3px rgba(56,224,173,.12)}
+button{border:0;cursor:pointer;font-weight:750;transition:transform .15s,opacity .15s,filter .15s}
+button:hover:not(:disabled){filter:brightness(1.06);transform:translateY(-1px)}
+button:disabled{opacity:.55;cursor:wait}
+.primary{margin-top:13px;background:var(--mint);color:#062218;box-shadow:0 8px 22px rgba(56,224,173,.12)}
+.secondary{margin-top:10px;background:transparent;color:#c0ccda;border:1px solid var(--line)}
+.msg{min-height:42px;margin:15px 0 0;padding:0;color:var(--muted);font-size:12px;line-height:1.5}
+.msg:not(:empty){padding:11px 12px;background:rgba(255,255,255,.035);border-radius:10px}
+.msg.err{color:var(--danger);background:rgba(255,100,100,.07)}
+.secure-note{display:flex;gap:9px;align-items:flex-start;margin-top:18px;color:#8494a9;font-size:11px;line-height:1.6}
+.secure-note svg{flex:none;margin-top:1px;color:var(--mint)}
+.footer{margin-top:25px;padding-top:18px;border-top:1px solid rgba(155,170,189,.12);color:#718198;font-size:11px;text-align:center}
+[hidden]{display:none!important}
+@media(max-width:760px){body{padding:12px}.shell{max-width:470px;grid-template-columns:1fr;min-height:0;border-radius:22px}.story{padding:24px 25px 26px}.story h2{font-size:30px;letter-spacing:-1px;margin:18px 0 10px}.story-copy{font-size:13px}.mini-stats{margin-top:20px}.mini-stat{padding:10px 8px}.mini-stat b{font-size:12px}.story-foot{display:none}.form-side{padding:31px 25px 27px}.form-side h1{font-size:26px}.sub{margin-bottom:22px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <section class="story" aria-label="My Expenses Tracker">
+    <div class="brand">
+      <div class="brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="15" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M7 15h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7 3h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      <span>My Expenses Tracker</span>
+    </div>
+    <div>
+      <div class="eyebrow"><span class="dot"></span> Your money, in control</div>
+      <h2>Every rupee.<br><span>More clarity.</span></h2>
+      <p class="story-copy">A calmer way to track money received, daily spending, savings and shared bills — all in one personal space.</p>
+      <div class="mini-stats" aria-label="Tracker features">
+        <div class="mini-stat"><b>Track</b><span>Daily expenses</span></div>
+        <div class="mini-stat"><b>Plan</b><span>Savings goals</span></div>
+        <div class="mini-stat"><b>Split</b><span>Shared bills</span></div>
+      </div>
+    </div>
+    <div class="story-foot">Private account · Secure sign-in · Your tracker</div>
+  </section>
+  <main class="form-side">
+    <div id="sign-in-panel">
+      <h1 id="title">Welcome back</h1>
+      <p class="sub" id="sub">Sign in with your email. We'll send you a one-time code — no password to remember.</p>
+      <form id="form" novalidate>
+        <div id="email-row">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="username webauthn" autocapitalize="off" autocorrect="off" spellcheck="false" required aria-label="Email address">
+        </div>
+        <div id="code-row" hidden>
+          <label for="code">6-digit verification code</label>
+          <input id="code" name="code" type="text" inputmode="numeric" placeholder="Enter your code" autocomplete="one-time-code" maxlength="6" pattern="[0-9]*" aria-label="6-digit verification code">
+        </div>
+        <button id="submit" class="primary" type="submit">Email me a sign-in code <span aria-hidden="true">→</span></button>
+        <button id="back" class="secondary" type="button" hidden>Use a different email</button>
+      </form>
+      <div id="passkey" hidden>
+        <button id="passkey-add" class="primary" type="button">Add a passkey</button>
+        <button id="passkey-skip" class="secondary" type="button">Not now</button>
+      </div>
+      <p class="msg" id="msg" role="status" aria-live="polite"></p>
+      <div class="secure-note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 19 6v5c0 4.6-2.9 7.9-7 10-4.1-2.1-7-5.4-7-10V6l7-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Your sign-in is handled securely. Never share your verification code with anyone.</span></div>
+      <div class="footer">My Expenses Tracker · Personal finance, made simpler</div>
+    </div>
+  </main>
+</div>
+<script>
+(function(){
+  var A=window.hatchable&&window.hatchable.auth;
+  var form=document.getElementById('form'),emailRow=document.getElementById('email-row'),codeRow=document.getElementById('code-row');
+  var emailEl=document.getElementById('email'),codeEl=document.getElementById('code'),submit=document.getElementById('submit'),back=document.getElementById('back');
+  var msg=document.getElementById('msg'),sub=document.getElementById('sub'),titleEl=document.getElementById('title');
+  var passkeyRow=document.getElementById('passkey'),passkeyAdd=document.getElementById('passkey-add'),passkeySkip=document.getElementById('passkey-skip');
+  var step='email',hasPasskey=false,PASSKEY_DECLINED='passkey_offer_declined';
+  function safeNext(){
+    var raw=new URLSearchParams(location.search).get('next')||'/';
+    if(typeof raw!=='string'||raw.charAt(0)!=='/'||raw.charAt(1)==='/')return '/';
+    for(var i=0;i<raw.length;i++){var c=raw.charCodeAt(i);if(c<32||c===92||c===127)return '/';}
+    return raw;
+  }
+  function say(text,kind){msg.textContent=text||'';msg.className='msg '+(kind||'');}
+  function done(){location.replace(safeNext());}
+  function declined(){try{return localStorage.getItem(PASSKEY_DECLINED)==='1';}catch(e){return false;}}
+  function decline(){try{localStorage.setItem(PASSKEY_DECLINED,'1');}catch(e){}}
+  function finish(){
+    if(hasPasskey||declined()||!A.registerPasskey||!A.supportsPasskeys||!A.supportsPasskeys()){done();return;}
+    step='passkey';form.hidden=true;titleEl.textContent="You're signed in";sub.textContent='Add a passkey to sign in next time with your fingerprint, face, or device screen lock.';say('');passkeyRow.hidden=false;passkeyAdd.focus();
+  }
+  if(!A){say('Sign-in is unavailable right now. Please refresh the page.','err');submit.disabled=true;return;}
+  A.getSession().then(function(s){if(s&&s.user)done();}).catch(function(){});
+  // Avoid starting a browser conditional WebAuthn request on page load. Some browsers keep it pending and then reject registerPasskey() with "A request is already pending." Existing passkeys can still be offered after the email is entered via signInWithPasskey().
+  passkeyAdd.addEventListener('click',function(){
+    passkeyAdd.disabled=true;passkeySkip.disabled=true;say('');
+    A.registerPasskey().then(function(r){if(!r)decline();done();}).catch(function(err){passkeyAdd.disabled=false;passkeySkip.disabled=false;say((err&&err.message)||'Could not save the passkey. You can continue without one.','err');});
+  });
+  passkeySkip.addEventListener('click',function(){decline();done();});
+  back.addEventListener('click',function(){step='email';codeRow.hidden=true;emailRow.hidden=false;back.hidden=true;submit.innerHTML='Email me a sign-in code <span aria-hidden="true">→</span>';sub.textContent="Sign in with your email. We'll send you a one-time code — no password to remember.";say('');emailEl.focus();});
+  form.addEventListener('submit',function(e){
+    e.preventDefault();if(step==='passkey')return;submit.disabled=true;
+    if(step==='email'){
+      var email=(emailEl.value||'').trim();
+      if(!email||!emailEl.checkValidity()){submit.disabled=false;say('Enter a valid email address.','err');emailEl.focus();return;}
+      A.startLogin({email:email}).then(function(r){
+        hasPasskey=!!(r&&r.has_passkey);
+        if(hasPasskey&&A.supportsPasskeys&&A.supportsPasskeys()){
+          return A.signInWithPasskey({email:email}).then(function(d){if(d&&d.user){done();return null;}return 'code';}).catch(function(){return 'code';});
+        }
+        return 'code';
+      }).then(function(next){
+        if(next!=='code')return;
+        step='code';emailRow.hidden=true;codeRow.hidden=false;back.hidden=false;submit.textContent='Verify code and sign in';sub.textContent='Enter the code we sent to '+emailEl.value.trim()+'.';say('Code sent. Check your inbox and spam folder.');codeEl.focus();
+      }).catch(function(err){say(err&&err.status===429?'Too many attempts. Please try again in a moment.':((err&&err.message)||'Could not send the code. Check your email and try again.'),'err');}).then(function(){submit.disabled=false;});
+      return;
+    }
+    var code=(codeEl.value||'').trim();
+    if(!/^\d{6}$/.test(code)){submit.disabled=false;say('Enter the 6-digit code from your email.','err');codeEl.focus();return;}
+    A.verifyCode({email:(emailEl.value||'').trim(),code:code}).then(function(d){if(d&&d.user){finish();return;}say('That code did not work. Please try again.','err');}).catch(function(err){say((err&&err.message)||'That code did not work. Check it and try again.','err');}).then(function(){submit.disabled=false;});
+  });
+  emailEl.focus();
+})();
+</script>
+</body>
+</html>
